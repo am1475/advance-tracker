@@ -3,12 +3,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // Ensure this is imported correctly
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input2";
-import { cn } from "@/lib/utils";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
+
+
 
 export function SignupFormDemo() {
   const [userId, setUserId] = useState("");

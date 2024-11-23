@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   PieChart,
   Pie,
@@ -16,7 +17,6 @@ import {
   Legend,
   BarChart,
   Bar,
-  
 } from "recharts";
 import {
   Sidebar,
@@ -59,24 +59,24 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <a
+          <Link
             href="/"
             className="block p-4 hover:bg-purple-700 rounded transition"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/user-details"
             className="block p-4 hover:bg-purple-700 rounded transition"
           >
             User Details
-          </a>
-          <a
+          </Link>
+          <Link
             href="/statistics"
             className="block p-4 hover:bg-purple-700 rounded transition"
           >
             Statistics
-          </a>
+          </Link>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
@@ -273,41 +273,41 @@ const Dashboard = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-lg text-black">
-  <h3 className="text-xl font-bold mb-4">Solved Questions Bar Chart</h3>
-  <ResponsiveContainer width="100%" height={300}>
-    <BarChart data={pieChartData}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="value" fill="#82ca9d" />
-    </BarChart>
-  </ResponsiveContainer>
-</div>
+                <h3 className="text-xl font-bold mb-4">Solved Questions Bar Chart</h3>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={pieChartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#82ca9d" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
 
               {/* Top 20 Solved Questions */}
               <div className="col-span-1 md:col-span-2 bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold mb-4 text-black">Top 20 Solved Questions</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {top20Questions.map((question, index) => (
-                    <li key={index} className="text-gray-700">
-                      <a
+                  {top20Questions.map((question) => (
+                    <li
+                      key={`${question.contestId}-${question.index}`}
+                      className="p-4 border rounded bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+                    >
+                      <Link
                         href={`https://codeforces.com/problemset/problem/${question.contestId}/${question.index}`}
                         target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
                       >
-                        <strong>{question.name}</strong> - Rating:{" "}
-                        {question.rating}
-                      </a>
+                        {question.name} ({question.rating})
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
           ) : (
-            <p>Loading user data...</p>
+            <p>Loading...</p>
           )}
         </div>
       </div>

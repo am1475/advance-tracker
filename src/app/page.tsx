@@ -1,8 +1,7 @@
 "use client";
 
 
-import { SpotlightPreview } from "./components/SpotlightPreview";
-import { HoverBorderGradientDemo } from "./components/HoverBorderGradientDemo"; // Adjust path if necessary
+// Adjust path if necessary
 import { WobbleCardDemo } from "./components/WobbleCardDemo";
 import { AuroraBackgroundDemo } from "./components/AuroraBackgroundDemo";
 import { FeaturesSectionDemo } from "./components/FeaturesSectionDemo";

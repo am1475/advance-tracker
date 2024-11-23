@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/sidebar";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { AreaChart, Area } from 'recharts';
-import { PieChart, Pie, Sector, Cell } from 'recharts';
-import { BarChart, Bar, Rectangle } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
+
 
 const LeetCodePage = () => {
   const [stats, setStats] = useState<any>(null);
