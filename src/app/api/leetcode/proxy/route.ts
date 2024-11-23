@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Unable to fetch data from LeetCode API" },
       { status: 500 }
